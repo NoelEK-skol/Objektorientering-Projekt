@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Dynamic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 // Moneky shooter remasterd
@@ -8,6 +9,7 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Texture2D backgroundTexture;
 
     public Game1()
     {
@@ -26,6 +28,7 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        backgroundTexture = Content.Load<Texture2D>("GameBakgrund");
 
         // TODO: use this.Content to load your game content here
     }
@@ -42,10 +45,13 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        _spriteBatch.Begin();
 
         // TODO: Add your drawing code here
+        Rectangle bgRect = new(0, 0, 800, 480);
+        _spriteBatch.Draw(backgroundTexture, bgRect, Color.White);
 
+        _spriteBatch.End();
         base.Draw(gameTime);
     }
 }
