@@ -5,8 +5,10 @@
   <Config />
   <SourceFiles>
     <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/GameBakgrund.png</File>
+    <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/PlayerCharacter.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

@@ -10,6 +10,8 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private Texture2D backgroundTexture;
+    private Texture2D character;
+    private Player player;
 
     public Game1()
     {
@@ -29,6 +31,12 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         backgroundTexture = Content.Load<Texture2D>("GameBakgrund");
+        character = Content.Load<Texture2D>("PlayerCharacter");
+        Vector2 startPosition = new Vector2(100, 300);
+        Point size = new Point(120, 150);
+        Color color = Color.White;
+        float speed = 5f;
+        player = new Player(character, startPosition, size, color, speed);
 
         // TODO: use this.Content to load your game content here
     }
@@ -39,7 +47,7 @@ public class Game1 : Game
             Exit();
 
         // TODO: Add your update logic here
-
+        player.Update();
         base.Update(gameTime);
     }
 
@@ -50,6 +58,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         Rectangle bgRect = new(0, 0, 800, 480);
         _spriteBatch.Draw(backgroundTexture, bgRect, Color.White);
+        player.Draw(_spriteBatch);
 
         _spriteBatch.End();
         base.Draw(gameTime);
