@@ -300,11 +300,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/Objektorientering-Projekt.csproj",
+      "projectUniqueName": "/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Objektorientering-Projekt.csproj",
       "projectName": "Objektorientering-Projekt",
-      "projectPath": "/home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/Objektorientering-Projekt.csproj",
+      "projectPath": "/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Objektorientering-Projekt.csproj",
       "packagesPath": "/home/teknikprogrammet/.nuget/packages/",
-      "outputPath": "/home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/obj/",
+      "outputPath": "/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/teknikprogrammet/.nuget/NuGet/NuGet.Config"
@@ -361,15 +361,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.21, 8.0.21]"
+            "version": "[8.0.20, 8.0.20]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[8.0.21, 8.0.21]"
+            "version": "[8.0.20, 8.0.20]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.21, 8.0.21]"
+            "version": "[8.0.20, 8.0.20]"
           }
         ],
         "frameworkReferences": {
@@ -377,7 +377,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.111/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

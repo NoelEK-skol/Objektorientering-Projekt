@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using System.Collections.Generic;
+using System.Dynamic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,7 +12,11 @@ public class Game1 : Game
     private SpriteBatch _spriteBatch;
     private Texture2D backgroundTexture;
     private Texture2D character;
+    private Texture2D enemy;
     private Player player;
+    private Enemy1 enemy1;
+
+    private List<Enemy1> enemies = new List<Enemy1>();
 
     public Game1()
     {
@@ -32,11 +37,14 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         backgroundTexture = Content.Load<Texture2D>("GameBakgrund");
         character = Content.Load<Texture2D>("PlayerCharacter");
+        enemy = Content.Load<Texture2D>("ApaFiende");
         Vector2 startPosition = new Vector2(100, 300);
+        Vector2 EnemyStartPosition = new Vector2(620, 320);
         Point size = new Point(120, 150);
         Color color = Color.White;
         float speed = 5f;
         player = new Player(character, startPosition, size, color, speed);
+        enemy1 = new Enemy1(enemy,EnemyStartPosition, size, color, speed);
 
         // TODO: use this.Content to load your game content here
     }
@@ -48,6 +56,11 @@ public class Game1 : Game
 
         // TODO: Add your update logic here
         player.Update();
+        foreach(Enemy1 enemy in enemies)
+        {
+            enemy.Update();    
+        }
+
         base.Update(gameTime);
     }
 
@@ -59,6 +72,11 @@ public class Game1 : Game
         Rectangle bgRect = new(0, 0, 800, 480);
         _spriteBatch.Draw(backgroundTexture, bgRect, Color.White);
         player.Draw(_spriteBatch);
+        enemy1.Draw(_spriteBatch);
+        foreach (Enemy1 a in enemies)
+        {
+            a.Draw(_spriteBatch);
+        }
 
         _spriteBatch.End();
         base.Draw(gameTime);

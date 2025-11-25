@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/Content/ApaFiende.png</SourceFile>
-  <SourceTime>2025-11-20T11:03:25.1826374+01:00</SourceTime>
-  <DestFile>/home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/Content/bin/DesktopGL/Content/ApaFiende.xnb</DestFile>
-  <DestTime>2025-11-20T11:10:28.3142343+01:00</DestTime>
+  <SourceFile>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/ApaFiende.png</SourceFile>
+  <SourceTime>2025-11-25T13:35:24.2981306+01:00</SourceTime>
+  <DestFile>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/bin/DesktopGL/Content/ApaFiende.xnb</DestFile>
+  <DestTime>2025-11-25T13:35:53.6530124+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-06-02T12:31:02+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

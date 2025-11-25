@@ -71,3 +71,4 @@
 /home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/obj/Debug/net8.0/Objektorientering-Projekt.genruntimeconfig.cache
 /home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/obj/Debug/net8.0/ref/Objektorientering-Projekt.dll
 /home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/bin/Debug/net8.0/Content/ApaFiende.xnb
+/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/bin/Debug/net8.0/Content/ApaFiende.xnb
