@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +17,8 @@ public class Player : BaseClass
         get { return speed; }
         set { speed = 10; }
     }
+
+    private List<Bullet> bullets = new List<Bullet>();
 
     public Player(Texture2D texture, Vector2 position, Point size, Color color, float speed) : base(texture, position, size, color)
     {
@@ -48,7 +51,7 @@ public class Player : BaseClass
     {
         base.Update();
         newkState = Keyboard.GetState();
-        
+        Shoot();
         oldkState = newkState;
 
         if(position.Y >= 300)
@@ -56,6 +59,14 @@ public class Player : BaseClass
             velocity.Y = 0;
             position.Y = 300;
             canJump = true;
+        }
+    }
+
+    private void Shoot()
+    {
+        if(newkState.IsKeyDown(Keys.E) && oldkState.IsKeyUp(Keys.E))
+        {
+        
         }
     }
 }

@@ -17,6 +17,7 @@ public class Game1 : Game
     private Texture2D enemy;
     private Player player;
     private Enemy1 enemy1;
+    private int SpawnTimer;
 
     private List<Enemy1> enemies = new List<Enemy1>();
 
@@ -49,6 +50,8 @@ public class Game1 : Game
         enemy1 = new Enemy1(enemy,EnemyStartPosition, size, color, speed);
         enemies.Add(enemy1);
 
+
+
         // TODO: use this.Content to load your game content here
     }
 
@@ -64,7 +67,7 @@ public class Game1 : Game
             enemy.Update();    
         }
         SpawnEnemy();
-
+        SpawnTimer ++;
         base.Update(gameTime);
     }
 
@@ -76,7 +79,6 @@ public class Game1 : Game
         Rectangle bgRect = new(0, 0, 800, 480);
         _spriteBatch.Draw(backgroundTexture, bgRect, Color.White);
         player.Draw(_spriteBatch);
-        enemy1.Draw(_spriteBatch);
         foreach (Enemy1 a in enemies)
         {
             a.Draw(_spriteBatch);
@@ -88,12 +90,18 @@ public class Game1 : Game
 
     private void SpawnEnemy()
     {
+        Texture2D texture = enemy;
+        Point size = new Point(120, 150);
+        Color color = Color.White;
+        Vector2 spawnPosition = new Vector2(850, 320);
         Random rand = new Random();
         int value = rand.Next(1, 101);
         int spawnChancePercent = (int)1f;
-        if(value <= spawnChancePercent)
+        if(value <= spawnChancePercent && SpawnTimer >= 15)
         {
-            enemies.Add(new Enemy1(enemy, new(1000, 300), Color.White, 1f));
+    
+            enemies.Add(new Enemy1(texture, spawnPosition, size, color, 2f));
+            SpawnTimer = 0;
         }
     }
 }
