@@ -31,7 +31,7 @@ public class Player : BaseClass
         }
     }
 
-    private void Move()
+    protected override void Move()
     {
         if (newkState.IsKeyDown(Keys.S)) position.Y += speed;
         if (position.X >= 0 && newkState.IsKeyDown(Keys.A)) position.X -= speed;
@@ -46,10 +46,9 @@ public class Player : BaseClass
     
     public override void Update()
     {
+        base.Update();
         newkState = Keyboard.GetState();
-        Move();
-
-        hitbox.Location = position.ToPoint();
+        
         oldkState = newkState;
 
         if(position.Y >= 300)

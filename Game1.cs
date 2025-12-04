@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -45,6 +47,7 @@ public class Game1 : Game
         float speed = 5f;
         player = new Player(character, startPosition, size, color, speed);
         enemy1 = new Enemy1(enemy,EnemyStartPosition, size, color, speed);
+        enemies.Add(enemy1);
 
         // TODO: use this.Content to load your game content here
     }
@@ -60,6 +63,7 @@ public class Game1 : Game
         {
             enemy.Update();    
         }
+        SpawnEnemy();
 
         base.Update(gameTime);
     }
@@ -80,5 +84,16 @@ public class Game1 : Game
 
         _spriteBatch.End();
         base.Draw(gameTime);
+    }
+
+    private void SpawnEnemy()
+    {
+        Random rand = new Random();
+        int value = rand.Next(1, 101);
+        int spawnChancePercent = (int)1f;
+        if(value <= spawnChancePercent)
+        {
+            enemies.Add(new Enemy1(enemy, new(1000, 300), Color.White, 1f));
+        }
     }
 }

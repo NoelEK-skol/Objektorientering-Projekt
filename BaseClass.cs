@@ -1,4 +1,5 @@
 
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -34,7 +35,13 @@ public class BaseClass
 
     public virtual void Update()
     {
+        Move();
+        hitbox.Location = position.ToPoint();
+    }
 
+    protected virtual void Move()
+    {
+        
     }
     
     public void Draw(SpriteBatch spriteBatch)
