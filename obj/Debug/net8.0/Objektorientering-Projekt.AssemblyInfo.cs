@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Objektorientering-Projekt")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c506351e53b24963887b807ae5fb9ad032b3d031")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5b7c9e37c94fa61c372c8e1aab926d7b1df7b30")]
 [assembly: System.Reflection.AssemblyProductAttribute("Objektorientering-Projekt")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Objektorientering-Projekt")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

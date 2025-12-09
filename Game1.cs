@@ -15,6 +15,7 @@ public class Game1 : Game
     private Texture2D backgroundTexture;
     private Texture2D character;
     private Texture2D enemy;
+    private Texture2D bulletTexture;
     private Player player;
     private Enemy1 enemy1;
     private int SpawnTimer;
@@ -41,12 +42,13 @@ public class Game1 : Game
         backgroundTexture = Content.Load<Texture2D>("GameBakgrund");
         character = Content.Load<Texture2D>("PlayerCharacter");
         enemy = Content.Load<Texture2D>("ApaFiende");
+        bulletTexture = Content.Load<Texture2D>("FireBall1");
         Vector2 startPosition = new Vector2(100, 300);
         Vector2 EnemyStartPosition = new Vector2(620, 320);
         Point size = new Point(120, 150);
         Color color = Color.White;
         float speed = 5f;
-        player = new Player(character, startPosition, size, color, speed);
+        player = new Player(character, bulletTexture, startPosition, size, color, speed);
         enemy1 = new Enemy1(enemy,EnemyStartPosition, size, color, speed);
         enemies.Add(enemy1);
 
@@ -67,6 +69,7 @@ public class Game1 : Game
             enemy.Update();    
         }
         SpawnEnemy();
+        EnemyBulletCollision();
         SpawnTimer ++;
         base.Update(gameTime);
     }
@@ -82,6 +85,10 @@ public class Game1 : Game
         foreach (Enemy1 a in enemies)
         {
             a.Draw(_spriteBatch);
+        }
+        foreach (Bullet bullet in player.Bullets)
+        {
+            bullet.Draw(_spriteBatch);
         }
 
         _spriteBatch.End();
@@ -102,6 +109,24 @@ public class Game1 : Game
     
             enemies.Add(new Enemy1(texture, spawnPosition, size, color, 2f));
             SpawnTimer = 0;
+        }
+    }
+
+    private void EnemyBulletCollision()
+    {
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            for(int j = 0; j < player.Bullets.Count; j++)
+            {
+                if (enemies[i].Hitbox.Intersects(player.Bullets[j].Hitbox))
+                {
+                    enemies.RemoveAt(i);
+                    player.Bullets.RemoveAt(j);
+                    i--;
+
+                    break;
+                }
+            }
         }
     }
 }

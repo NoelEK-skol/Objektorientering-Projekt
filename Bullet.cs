@@ -23,5 +23,11 @@ public class Bullet
     {
         float speed = 150;
         position.X += speed * 1f/60f;
+        hitbox.Location = position.ToPoint();
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.Draw(texture, hitbox, Color.White);
     }
 }

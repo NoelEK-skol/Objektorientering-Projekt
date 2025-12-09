@@ -8,6 +8,7 @@ public class Player : BaseClass
 {
     private KeyboardState newkState;
     private KeyboardState oldkState;
+    private Texture2D bulletTexture;
     const float gravity = 30f;
     Vector2 velocity;
     private bool canJump = true;
@@ -19,10 +20,15 @@ public class Player : BaseClass
     }
 
     private List<Bullet> bullets = new List<Bullet>();
+    public List<Bullet> Bullets
+    {
+        get{return bullets;}
+    }
 
-    public Player(Texture2D texture, Vector2 position, Point size, Color color, float speed) : base(texture, position, size, color)
+    public Player(Texture2D texture, Texture2D bulletTexture, Vector2 position, Point size, Color color, float speed) : base(texture, position, size, color)
     {
         this.speed = speed;
+        this.bulletTexture = bulletTexture;
     }
 
     private void jump()
@@ -60,13 +66,18 @@ public class Player : BaseClass
             position.Y = 300;
             canJump = true;
         }
+
+        foreach(Bullet b in bullets)
+        {
+            b.Update();
+        }
     }
 
     private void Shoot()
     {
         if(newkState.IsKeyDown(Keys.E) && oldkState.IsKeyUp(Keys.E))
         {
-        
+            bullets.Add(new(bulletTexture, position + new Vector2(90,25)));
         }
     }
 }
