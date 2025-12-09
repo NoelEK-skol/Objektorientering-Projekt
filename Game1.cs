@@ -123,7 +123,7 @@ public class Game1 : Game
                     enemies.RemoveAt(i);
                     player.Bullets.RemoveAt(j);
                     i--;
-
+                
                     break;
                 }
             }
