@@ -19,6 +19,10 @@ public class Game1 : Game
     private Player player;
     private Enemy1 enemy1;
     private int SpawnTimer;
+    private int HP = 3;
+    private Texture2D heart;
+    private Texture2D DangerSign;
+    private Texture2D ShortTile;
 
     private List<Enemy1> enemies = new List<Enemy1>();
 
@@ -50,6 +54,9 @@ public class Game1 : Game
         float speed = 5f;
         player = new Player(character, bulletTexture, startPosition, size, color, speed);
         enemy1 = new Enemy1(enemy,EnemyStartPosition, size, color, speed);
+        heart = Content.Load<Texture2D>("Hearth");
+        DangerSign = Content.Load<Texture2D>("DangerSign1");
+        ShortTile = Content.Load<Texture2D>("ShortTile");
         enemies.Add(enemy1);
 
 
@@ -70,6 +77,7 @@ public class Game1 : Game
         }
         SpawnEnemy();
         EnemyBulletCollision();
+        PlayerCollision();
         SpawnTimer ++;
         base.Update(gameTime);
     }
@@ -81,6 +89,8 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         Rectangle bgRect = new(0, 0, 800, 480);
         _spriteBatch.Draw(backgroundTexture, bgRect, Color.White);
+        _spriteBatch.Draw(ShortTile, new Rectangle(200, 200, 100,100), Color.White);
+        _spriteBatch.Draw(DangerSign, new Rectangle(400,350, 100,100), Color.White);
         player.Draw(_spriteBatch);
         foreach (Enemy1 a in enemies)
         {
@@ -89,6 +99,11 @@ public class Game1 : Game
         foreach (Bullet bullet in player.Bullets)
         {
             bullet.Draw(_spriteBatch);
+        }
+
+        for(int i = 0; i<HP; i++)
+        {
+            _spriteBatch.Draw(heart, new Rectangle((50 * i) + 320, 0, 50, 50), Color.White);
         }
 
         _spriteBatch.End();
@@ -125,6 +140,23 @@ public class Game1 : Game
                     i--;
                 
                     break;
+                }
+            }
+        }
+    }
+
+    private void PlayerCollision()
+    {
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].Hitbox.Intersects(player.Hitbox))
+            {
+                HP--;
+                enemies.RemoveAt(i);
+                i--;
+                if(HP <= 0)
+                {
+                    Exit();
                 }
             }
         }

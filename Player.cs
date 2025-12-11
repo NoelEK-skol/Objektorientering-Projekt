@@ -45,12 +45,28 @@ public class Player : BaseClass
         if (newkState.IsKeyDown(Keys.S)) position.Y += speed;
         if (position.X >= 0 && newkState.IsKeyDown(Keys.A)) position.X -= speed;
         if (position.X <= 680 && newkState.IsKeyDown(Keys.D)) position.X += speed;
+        if(position.Y <= -10) position.Y = -10;
         if (newkState.IsKeyDown(Keys.Space))
         {
             jump();
         }
         position.Y += velocity.Y;
         velocity.Y += gravity * 1f/60f;
+        if(position.X >= 300 && position.X <= 360 && position.Y >= 250)
+        {
+            speed = 1f;
+            canJump = false;
+            velocity.Y = 1;
+        }
+        else
+        {
+            speed = 5f;
+        }
+
+        if(position.X >= 360 && position.X <= 410)
+        {
+            canJump = true;
+        }
     }
     
     public override void Update()
@@ -71,6 +87,7 @@ public class Player : BaseClass
         {
             b.Update();
         }
+
     }
 
     private void Shoot()

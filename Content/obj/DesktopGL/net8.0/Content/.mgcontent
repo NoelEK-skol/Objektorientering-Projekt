@@ -5,11 +5,17 @@
   <Config />
   <SourceFiles>
     <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/ApaFiende.png</File>
+    <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/DangerSign1.png</File>
     <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/FireBall1.png</File>
     <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/GameBakgrund.png</File>
+    <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/Hearth.png</File>
     <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/PlayerCharacter.png</File>
+    <File>/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/Content/ShortTile.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

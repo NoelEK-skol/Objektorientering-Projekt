@@ -73,3 +73,6 @@
 /home/teknikprogrammet/Dokument/GitHub/pingaponga/Objektorientering-Projekt/bin/Debug/net8.0/Content/ApaFiende.xnb
 /home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/bin/Debug/net8.0/Content/ApaFiende.xnb
 /home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/bin/Debug/net8.0/Content/FireBall1.xnb
+/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/bin/Debug/net8.0/Content/Hearth.xnb
+/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/bin/Debug/net8.0/Content/DangerSign1.xnb
+/home/teknikprogrammet/Dokument/GitHub/Objektorientering-Projekt/bin/Debug/net8.0/Content/ShortTile.xnb
