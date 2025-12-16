@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -33,7 +34,7 @@ public class Player : BaseClass
 
     private void jump()
     {
-        if (canJump)
+        if (canJump) // canJump //true
         {
             velocity.Y = -10;
             canJump = false;
@@ -82,6 +83,14 @@ public class Player : BaseClass
             position.Y = 300;
             canJump = true;
         }
+
+        if(position.X >= 120 && position.X <= 380 && Math.Abs(position.Y - 75)< 5 && velocity.Y > 0) ///
+        {
+            velocity.Y = 0;
+            position.Y = 75;
+            canJump = true;
+        }
+       
 
         foreach(Bullet b in bullets)
         {

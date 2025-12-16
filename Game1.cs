@@ -18,11 +18,11 @@ public class Game1 : Game
     private Texture2D bulletTexture;
     private Player player;
     private Enemy1 enemy1;
-    private int SpawnTimer;
     private int HP = 3;
     private Texture2D heart;
     private Texture2D DangerSign;
     private Texture2D ShortTile;
+    private EnemySpawner spawner;
 
     private List<Enemy1> enemies = new List<Enemy1>();
 
@@ -47,6 +47,7 @@ public class Game1 : Game
         character = Content.Load<Texture2D>("PlayerCharacter");
         enemy = Content.Load<Texture2D>("ApaFiende");
         bulletTexture = Content.Load<Texture2D>("FireBall1");
+        spawner = new EnemySpawner(enemy);
         Vector2 startPosition = new Vector2(100, 300);
         Vector2 EnemyStartPosition = new Vector2(620, 320);
         Point size = new Point(120, 150);
@@ -57,7 +58,6 @@ public class Game1 : Game
         heart = Content.Load<Texture2D>("Hearth");
         DangerSign = Content.Load<Texture2D>("DangerSign1");
         ShortTile = Content.Load<Texture2D>("ShortTile");
-        enemies.Add(enemy1);
 
 
 
@@ -75,10 +75,9 @@ public class Game1 : Game
         {
             enemy.Update();    
         }
-        SpawnEnemy();
+        spawner.Update(enemies);
         EnemyBulletCollision();
         PlayerCollision();
-        SpawnTimer ++;
         base.Update(gameTime);
     }
 
@@ -89,7 +88,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         Rectangle bgRect = new(0, 0, 800, 480);
         _spriteBatch.Draw(backgroundTexture, bgRect, Color.White);
-        _spriteBatch.Draw(ShortTile, new Rectangle(200, 200, 100,100), Color.White);
+        _spriteBatch.Draw(ShortTile, new Rectangle(200, 200, 200,80), Color.White);
         _spriteBatch.Draw(DangerSign, new Rectangle(400,350, 100,100), Color.White);
         player.Draw(_spriteBatch);
         foreach (Enemy1 a in enemies)
@@ -110,22 +109,8 @@ public class Game1 : Game
         base.Draw(gameTime);
     }
 
-    private void SpawnEnemy()
-    {
-        Texture2D texture = enemy;
-        Point size = new Point(120, 150);
-        Color color = Color.White;
-        Vector2 spawnPosition = new Vector2(850, 320);
-        Random rand = new Random();
-        int value = rand.Next(1, 101);
-        int spawnChancePercent = (int)1f;
-        if(value <= spawnChancePercent && SpawnTimer >= 15)
-        {
     
-            enemies.Add(new Enemy1(texture, spawnPosition, size, color, 2f));
-            SpawnTimer = 0;
-        }
-    }
+    
 
     private void EnemyBulletCollision()
     {
